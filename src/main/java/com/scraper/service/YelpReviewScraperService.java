@@ -19,11 +19,9 @@ import com.gargoylesoftware.htmlunit.html.DomAttr;
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.scraper.dto.AvatarEmotion;
 import com.scraper.dto.YelpReviewScraper;
 import com.scraper.exception.ErrorCodes;
 import com.scraper.exception.ResponseException;
-import com.scraper.utils.GoogleVisionApiLabelUtils;
 
 import static com.scraper.constant.XPathConstant.*;
 
@@ -76,16 +74,10 @@ public class YelpReviewScraperService {
 			DomAttr rating = (DomAttr) ilElement.getFirstByXPath(RATING_PATH);
 			DomElement date = (DomElement) ilElement.getFirstByXPath(RATING_DATE_PATH);
 			DomElement comment = (DomElement) ilElement.getFirstByXPath(COMMENT_PATH);
-
+			
 			if (!ObjectUtils.isEmpty(name)) {
-				AvatarEmotion avatarEmotions = new AvatarEmotion();
-				try {
-					avatarEmotions = GoogleVisionApiLabelUtils.detectFaces(img.getValue());
-				} catch (Exception e) {
-					LOG.warn(String.format("Printing defaults, Google vision doesn't detect emotions from image : %s", img.getValue()));
-				}
-				yrcList.add(new YelpReviewScraper(name.asText(), img.getValue(), avatarEmotions, location.asText(),
-						date.asText(), rating.getValue(), comment.asText()));
+				yrcList.add(new YelpReviewScraper(name.asText(), img.getValue(), location.asText(), date.asText(),
+						rating.getValue(), comment.asText()));
 			}
 		}
 		LOG.info("Retrieving done.");

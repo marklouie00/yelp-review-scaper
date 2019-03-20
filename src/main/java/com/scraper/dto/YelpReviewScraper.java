@@ -11,7 +11,6 @@ public class YelpReviewScraper {
 
 	private String author;
 	private String img;
-	private AvatarEmotion avatarEmotions;
 	private String location;
 	private String date;
 	private String rating;
@@ -21,12 +20,10 @@ public class YelpReviewScraper {
 
 	}
 
-	public YelpReviewScraper(String author, String img, AvatarEmotion avatarEmotions, String location, String date,
-			String rating, String comment) {
+	public YelpReviewScraper(String author, String img, String location, String date, String rating, String comment) {
 		super();
 		this.author = author;
 		this.img = img;
-		this.avatarEmotions = avatarEmotions;
 		this.location = location;
 		this.date = date;
 		this.rating = rating;
@@ -47,14 +44,6 @@ public class YelpReviewScraper {
 
 	public void setImg(String img) {
 		this.img = img;
-	}
-
-	public AvatarEmotion getAvatarEmotions() {
-		return avatarEmotions;
-	}
-
-	public void setAvatarEmotions(AvatarEmotion avatarEmotions) {
-		this.avatarEmotions = avatarEmotions;
 	}
 
 	public String getLocation() {
@@ -91,8 +80,8 @@ public class YelpReviewScraper {
 
 	@Override
 	public String toString() {
-		return "YelpReviewScraper [author=" + author + ", img=" + img + ", avatarEmotions=" + avatarEmotions
-				+ ", location=" + location + ", date=" + date + ", rating=" + rating + ", comment=" + comment + "]";
+		return "YelpReviewScraper [author=" + author + ", img=" + img + ", location=" + location + ", date=" + date
+				+ ", rating=" + rating + ", comment=" + comment + "]";
 	}
 
 }

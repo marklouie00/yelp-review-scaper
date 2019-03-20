@@ -12,8 +12,7 @@ public enum ErrorCodes {
 	E_0000("E-0000", "Unexpected error occurred"),
 	E_0012("E-0012", "Yelp page unrechable"),
 	E_0013("E-0013", "Invalid URL"),
-	E_0014("E-0014", "Unable to parse URL"),
-	E_0015("E-0015", "Unexpected error occurred using google vision API");
+	E_0014("E-0014", "Unable to parse URL");
 
 	private String key;
 	private String value;
